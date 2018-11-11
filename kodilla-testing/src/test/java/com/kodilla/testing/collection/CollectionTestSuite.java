@@ -31,24 +31,23 @@ public class CollectionTestSuite {
     public void testOddNumbersExterminatorEmptyList() {
 //        Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> emptyList = new ArrayList<Integer>();
+        List<Integer> emptyList = new ArrayList<Integer>();
 //        When
-        ArrayList<Integer> result = oddNumbersExterminator.exterminate(emptyList);
+        List<Integer> result = oddNumbersExterminator.exterminate(emptyList);
         System.out.println("Testing Empty List");
 //        Then
-        Assert.assertEquals(result.size(), 0);
+        Assert.assertEquals(0, result.size());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList() {
 //        Given
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
-        ArrayList<Integer> list = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 26, 38, 41));
+        List<Integer> list = new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 26, 38, 41));
 //        When
-        ArrayList<Integer> result = oddNumbersExterminator.exterminate(list);
+        List<Integer> result = oddNumbersExterminator.exterminate(list);
         System.out.println("Testing Normal List");
-
 //        Then
-        Assert.assertEquals(result, new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8, 10, 26, 38)));
+        Assert.assertEquals(new ArrayList<Integer>(Arrays.asList(2, 4, 6, 8, 10, 26, 38)), result);
     }
 }
