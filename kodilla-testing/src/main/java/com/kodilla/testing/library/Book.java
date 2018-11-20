@@ -1,5 +1,7 @@
 package com.kodilla.testing.library;
 
+import java.util.Objects;
+
 public class Book {
     String title;
     String author;

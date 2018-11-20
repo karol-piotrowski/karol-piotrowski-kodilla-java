@@ -1,6 +1,8 @@
 package com.kodilla.testing.forum.statistics;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 
 public class AdvStatistics {
     private int userCount;
@@ -27,7 +29,7 @@ public class AdvStatistics {
     }
 
     public String showStatistics() {
-        DecimalFormat df = new DecimalFormat("#.##");
+        DecimalFormat df = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.US));
         return "Number of users: " + userCount + ", Number of posts: " + postCount + ", Number of comments: " + commentsCount + ", Average posts per user: " + df.format(avgPostsPerUser) + ", Average comments per user: " + df.format(avgCommentsPerUser) + ", Average comments per post: " + df.format(avgCommentsPerPost);
     }
 

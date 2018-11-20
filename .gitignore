@@ -1,7 +1,7 @@
 .gradle
 /build/
 !gradle/wrapper/gradle-wrapper.jar
-/kodilla-testing/build/
+*/build/
 
 ### STS ###
 .apt_generated
@@ -18,7 +18,7 @@
 *.iml
 *.ipr
 /out/
-/kodilla-testing/out/
+*/out/
 
 ### NetBeans ###
 /nbproject/private/
@@ -26,3 +26,4 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
