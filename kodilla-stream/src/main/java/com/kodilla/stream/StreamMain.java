@@ -1,26 +1,33 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.time.Period;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        String textToDecorate = "The quick brown fox jumps over the lazy dog.";
+        Forum theForum = new Forum();
 
-        System.out.println("Decorating the following text: " + textToDecorate);
-        System.out.println(poemBeautifier.beautify(textToDecorate, str -> "ABC" + str + "ABC"));
-        System.out.println(poemBeautifier.beautify(textToDecorate, str -> str.toUpperCase()));
-        System.out.println(poemBeautifier.beautify(textToDecorate, str -> {
-            String resultString = "";
-            for (int i = 0; i < str.length(); i++) {
-                resultString = i % 2 == 0 ? resultString + str.substring(i, i + 1).toUpperCase() : resultString + str.substring(i, i + 1).toLowerCase();
-            }
-            return resultString;
-        }));
-        System.out.println(poemBeautifier.beautify(textToDecorate, str -> new StringBuilder(str).reverse().toString()));
+//      USING TWO STREAMS
+//        Map<Integer, ForumUser> theResultMap = theForum.getUserList().stream()
+//                .filter(forumUser -> forumUser.getSex() == 'M' && Period.between(forumUser.getDateOfBirth(),LocalDate.now()).getYears()>=20 && forumUser.getPublishedPostsCount()>=1)
+//                .collect(Collectors.toMap(ForumUser::getUuid, ForumUser -> ForumUser));
+//
+//        System.out.println("# elements: " + theResultMap.size());
+//        theResultMap.entrySet().stream()
+//                .map(entry -> entry.getKey() + ": " + entry.getValue())
+//                .forEach(System.out::println);
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        NumbersGenerator.generateEven(20);
+//      USING SINGLE STREAM
+        theForum.getUserList().stream()
+                .filter(forumUser -> forumUser.getSex() == 'M' && Period.between(forumUser.getDateOfBirth(),LocalDate.now()).getYears()>=20 && forumUser.getPublishedPostsCount()>=1)
+                .collect(Collectors.toMap(ForumUser::getUuid, ForumUser -> ForumUser))
+                .entrySet().stream()
+                .map(entry -> entry.getKey() + ": " + entry.getValue())
+                .forEach(System.out::println);
+
     }
 }
