@@ -34,11 +34,10 @@ public class MovieStore {
         MovieStore movieStore = new MovieStore();
         System.out.println(
                 movieStore.getMovies()
-                        .entrySet()
+                        .values()
                         .stream()
-                        .flatMap(e -> e.getValue().stream())
+                        .flatMap(e -> e.stream())
                         .collect(Collectors.joining("!"))
         );
-
     }
 }
