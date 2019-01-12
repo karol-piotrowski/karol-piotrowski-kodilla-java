@@ -11,6 +11,7 @@ public class GlutenFreeShopSupplier implements Supplier {
         System.out.println("Please confirm the order above by entering \"YES\" or \"Y\" (not case-sensitive)");
         Scanner scanner = new Scanner(System.in);
         String confirmation = scanner.nextLine();
+        scanner.close();
         if (confirmation.toUpperCase().equals("Y") || confirmation.toUpperCase().equals("YES")) {
             System.out.println("DONE!");
             return true;
