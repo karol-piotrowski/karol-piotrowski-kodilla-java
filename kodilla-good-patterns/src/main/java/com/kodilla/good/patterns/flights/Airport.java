@@ -2,12 +2,12 @@ package com.kodilla.good.patterns.flights;
 
 public class Airport {
     private String iataCode;
-    private String cityName;
+    private City city;
     private String airportName;
 
-    public Airport(final String iataCode, final String cityName, final String airportName) {
+    public Airport(final String iataCode, final City city, final String airportName) {
         this.iataCode = iataCode;
-        this.cityName = cityName;
+        this.city = city;
         this.airportName = airportName;
     }
 
@@ -24,5 +24,22 @@ public class Airport {
     @Override
     public int hashCode() {
         return iataCode.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return iataCode + "(" + city + " - " + airportName + ")";
+    }
+
+    public String getIataCode() {
+        return iataCode;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public String getAirportName() {
+        return airportName;
     }
 }
