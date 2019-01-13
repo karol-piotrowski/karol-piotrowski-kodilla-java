@@ -1,6 +1,6 @@
 package com.kodilla.good.patterns.flights;
 
-public class flightsMain {
+public class FlightsMain {
     public static void main(String[] args) {
         FlightSetRetriever flightSetRetriever = new FlightSetRetriever();
         FlightsFinder flightsFinder = new FlightsFinder(flightSetRetriever.retrieve());
