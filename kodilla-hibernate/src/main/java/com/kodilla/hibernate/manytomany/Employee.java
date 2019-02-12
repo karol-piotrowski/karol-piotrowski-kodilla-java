@@ -1,11 +1,14 @@
 package com.kodilla.hibernate.manytomany;
 
-import org.hibernate.annotations.ManyToAny;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+
+@NamedQuery(
+        name = "Employee.retrieveEmployeesWithLastName",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
 
 @Entity
 @Table(name = "EMPLOYEES")
@@ -54,6 +57,7 @@ public class Employee {
     private void setLastname(String lastname) {
         this.lastname = lastname;
     }
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "JOIN_COMPANY_EMPLOYEE",

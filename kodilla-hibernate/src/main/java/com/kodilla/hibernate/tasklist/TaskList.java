@@ -53,7 +53,6 @@ public class TaskList {
         this.description = description;
     }
 
-
     @OneToMany(
             targetEntity = Task.class,
             mappedBy = "taskList",
