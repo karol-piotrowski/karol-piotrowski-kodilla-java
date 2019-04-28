@@ -12,6 +12,11 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedQuery(
+        name = "Company.retrieveByNameSubstring",
+        query = "FROM Company WHERE lower(name) LIKE lower(concat('%',:ARG,'%'))"
+)
+
 
 @Entity
 @Table(name = "COMPANIES")
