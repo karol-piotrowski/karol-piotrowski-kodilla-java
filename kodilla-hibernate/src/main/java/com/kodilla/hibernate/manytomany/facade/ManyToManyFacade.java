@@ -17,14 +17,6 @@ public final class ManyToManyFacade {
     @Autowired
     private EmployeeDao employeeDao;
 
-    public CompanyDao getCompanyDao() {
-        return companyDao;
-    }
-
-    public EmployeeDao getEmployeeDao() {
-        return employeeDao;
-    }
-
     public List<Company> getCompaniesByPartialName(String namePart) {
         return companyDao.retrieveByNameSubstring(namePart);
     }
